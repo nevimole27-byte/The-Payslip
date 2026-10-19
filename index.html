@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>The Payslip — method</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap">
+<style>
+:root {
+  box-sizing: border-box;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+  --paper: #F1F2F2;
+  --card: #FAFAFA;
+  --ink: #15181B;
+  --slate: #5F666C;
+  --rule: #C9CDD0;
+  --red: #C0352B;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #121619;
+    --card: #181D21;
+    --ink: #E4E8EA;
+    --slate: #9BA4AB;
+    --rule: #2C3339;
+    --red: #E8564A;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #121619;
+  --card: #181D21;
+  --ink: #E4E8EA;
+  --slate: #9BA4AB;
+  --rule: #2C3339;
+  --red: #E8564A;
+  color-scheme: dark;
+}
+*, *::before, *::after { box-sizing: inherit; }
+html { scroll-padding-top: env(safe-area-inset-top, 0px); }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'IBM Plex Sans', system-ui, -apple-system, sans-serif;
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  -webkit-text-size-adjust: 100%;
+}
+.wrap { max-width: 46rem; margin: 0 auto; padding: 3.5rem 1.5rem 6rem; }
+.eyebrow {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--red); margin: 0 0 0.75rem;
+}
+h1 { font-size: clamp(2.25rem, 7vw, 3.25rem); line-height: 1.05; font-weight: 700; margin: 0 0 1rem; letter-spacing: -0.02em; }
+.lede { font-size: clamp(1.1rem, 3.2vw, 1.3rem); line-height: 1.5; color: var(--slate); margin: 0 0 2.5rem; max-width: 34rem; }
+h2 { font-size: 1.4rem; font-weight: 600; margin: 3rem 0 0.9rem; letter-spacing: -0.01em; }
+h3 { font-size: 1.05rem; font-weight: 600; margin: 1.75rem 0 0.5rem; }
+p { margin: 0 0 1rem; }
+a { color: var(--red); }
+a:hover { color: var(--ink); }
+hr { border: 0; border-top: 1px solid var(--rule); margin: 2.5rem 0; }
+.rule-top { border-top: 2px solid var(--ink); padding-top: 1.5rem; }
+.mono { font-family: 'JetBrains Mono', ui-monospace, monospace; }
+.card {
+  background: var(--card); border: 1px solid var(--rule);
+  padding: 1.25rem 1.35rem; margin: 1.25rem 0; border-radius: 4px;
+}
+.card.warn { border-color: var(--red); }
+.formula {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 0.85rem; line-height: 1.9;
+  background: var(--card); border: 1px solid var(--rule);
+  padding: 1.1rem 1.25rem; margin: 1.25rem 0; border-radius: 4px;
+  overflow-x: auto; white-space: pre;
+}
+table { width: 100%; border-collapse: collapse; margin: 1.25rem 0; font-size: 0.95rem; }
+th, td { text-align: left; padding: 0.6rem 0.75rem 0.6rem 0; border-bottom: 1px solid var(--rule); vertical-align: top; }
+th { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--slate); font-weight: 500; }
+.scroll { overflow-x: auto; }
+ul { margin: 0 0 1rem; padding-left: 1.1rem; }
+li { margin-bottom: 0.5rem; }
+.pending { color: var(--red); font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 0.85em; }
+footer { margin-top: 4rem; padding-top: 1.5rem; border-top: 1px solid var(--rule); color: var(--slate); font-size: 0.9rem; }
+</style>
+</head>
+<body>
+<main class="wrap">
+
+  <p class="eyebrow">Culture &amp; Enjeux du Numérique</p>
+  <h1>The Payslip</h1>
+  <p class="lede">A tool that prices your attention while you are spending it, and issues the risk warning the feed never shows.</p>
+
+  <h2>What this is</h2>
+  <p>Most people under thirty now get financial information from social media rather than from an adviser. Much of that content is posted by people who are not certified and whose claims are not regulated. Meanwhile the thing actually being sold on those platforms is not the advice — it is the audience.</p>
+  <p>The Payslip makes that second transaction visible. A counter runs alongside the feed and tracks what your watching is worth to the platform. When a video reads as financial content, it adds the kind of warning that financial promotion carries everywhere else. At the end of the week it issues a payslip: hours supplied, revenue generated, deductions, net pay zero.</p>
+  <p>It is designed as a phone app, because that is where the feed is watched. It is built as a browser extension, because iOS forbids one application drawing over another and that is the version three students can actually ship.</p>
+
+  <h2>Research question</h2>
+  <div class="card">
+    <p style="margin:0">We are creating an app for people aged 15 to 25 who watch finance and get-rich content, to see what their attention is worth while they are spending it, evoke feelings of unease and recognition, and thoughts about unpaid attention labour and unregulated financial advice, in the context of the feed itself, as it is being watched.</p>
+  </div>
+
+  <h2>How the number is built</h2>
+  <p>Nothing is earned while you watch an ordinary video. Revenue arrives when an advertisement is served. So the counter is not measuring income as it happens — it spreads advertising revenue across viewing time. The claim it makes is this:</p>
+  <div class="card">
+    <p style="margin:0"><em>At the average rate this platform converts attention into advertising revenue, a minute of your watching is worth €X to it.</em></p>
+  </div>
+  <p>Not “this video earned them €X”. We compute that rate two independent ways and publish both.</p>
+
+  <h3>Route A — bottom-up</h3>
+  <p>Follows the market mechanism: time becomes videos, videos become ad impressions, impressions become money.</p>
+  <div class="formula">videos watched   V = S ÷ D
+ad impressions   I = V × (L ÷ 100)
+revenue          R = I × (C ÷ 1000)
+
+per-second rate  r = (1 ÷ D) × (L ÷ 100) × (C ÷ 1000)</div>
+  <p>Where <span class="mono">S</span> is seconds watched, <span class="mono">D</span> average video duration, <span class="mono">L</span> ad load in advertisements per hundred videos, and <span class="mono">C</span> the CPM.</p>
+
+  <h3>Route B — top-down</h3>
+  <p>Ignores the mechanism and divides total advertising revenue by total users, then by hours watched per user per year. Cruder, but it depends on no assumption about ad load.</p>
+
+  <h3>Why both</h3>
+  <p>Route A is priced for a European viewer at European advertising rates. Route B is a global average, pulled downward by markets where impressions sell for a fraction of the European price. They are not competing estimates of one quantity, and the gap between them is itself a finding about where the money in this industry comes from.</p>
+
+  <h2>Where the rates come from</h2>
+  <div class="scroll">
+  <table>
+    <tr><th>Input</th><th>Source</th><th>Status</th></tr>
+    <tr><td>Reachable audience, France</td><td>TikTok Ads Manager, own account</td><td>Measured</td></tr>
+    <tr><td>Ad load</td><td>Our own count across scrolled sessions</td><td class="pending">In progress</td></tr>
+    <tr><td>Average video duration</td><td>Same sessions</td><td class="pending">In progress</td></tr>
+    <tr><td>CPM, cross-industry</td><td>Published advertiser-panel benchmarks</td><td>Range $4.80–$13.26</td></tr>
+    <tr><td>CPM, finance vertical</td><td>Same benchmark sets</td><td>$11.00–$18.00</td></tr>
+    <tr><td>Platform ad revenue</td><td>Analyst estimates (WARC and others)</td><td>Estimate only</td></tr>
+    <tr><td>Users</td><td>Analyst estimates</td><td>Estimate only</td></tr>
+    <tr><td>Warning wording</td><td>AMF and ESMA guidance; Loi n° 2023-451</td><td>Quoted</td></tr>
+    <tr><td>Registration status</td><td>AMF and ORIAS public registers</td><td>Checked per account</td></tr>
+  </table>
+  </div>
+  <p>Every rate on this page carries its source and the date it was retrieved. Where no primary source exists, we say so rather than rounding the problem away.</p>
+
+  <h2>What it cannot do</h2>
+  <div class="card warn">
+    <p><strong>TikTok publishes nothing.</strong> ByteDance is privately held and reports neither revenue nor user numbers. Every platform-level figure here is an outside estimate, and independent calculations of revenue per user disagree by a factor of nearly two. Nobody outside the company can tell you exactly what your attention is worth — which is a large part of why this project exists.</p>
+    <p><strong>The phone version is a mockup.</strong> iOS does not permit one application to draw over another, so the overlay cannot be built there. Android permits it. The thing standing between a user and this number is a platform policy decision, not a technical limit.</p>
+    <p><strong>Detection is imperfect.</strong> Financial content is identified from captions and hashtags, which produces both false positives and misses. We measure our own error rate and publish it as precision and recall rather than as a single accuracy figure, because the two failure modes are not equally bad.</p>
+    <p style="margin-bottom:0"><strong>Hours are self-reported.</strong> No operating system exposes screen time by content category.</p>
+  </div>
+
+  <h2>What it builds on</h2>
+  <ul>
+    <li><strong>Data Selfie</strong> (Hang Do Thi Duc &amp; Regina Flores Mir, 2017) — an extension that reads the rendered page rather than an API, and returns what the platform has inferred about you.</li>
+    <li><strong>Facebook Demetricator</strong> (Ben Grosser, 2012–) — removes every number from the interface. Facebook moved to have it pulled; Google reinstated it.</li>
+    <li><strong>How Much Is Your Data Worth?</strong> (heyData, 2023) — a published calculation turning company filings and screen time into a per-minute figure.</li>
+    <li><strong>Should We Treat Data as Labor?</strong> (Arrieta-Ibarra, Goff, Jiménez-Hernández, Lanier &amp; Weyl, 2018) — argues user data is labour rather than free raw material, and proposes a minimum data wage. None has ever been issued. This document is what one would look like.</li>
+  </ul>
+
+  <h2>Privacy</h2>
+  <p>The tool collects nothing and transmits nothing. Everything it counts stays in the browser on the machine it runs on. There is no account, no server and no analytics.</p>
+
+  <footer>
+    <p>A student project for the course Culture &amp; Enjeux du Numérique, 2026.</p>
+    <p>Not a commercial product and not for sale. Figures on this page are provisional while sourcing is completed.</p>
+    <p class="mono" style="font-size:0.8rem">Last updated 19 October 2026</p>
+  </footer>
+
+</main>
+</body>
+</html>
